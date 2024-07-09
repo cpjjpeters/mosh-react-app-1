@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Message from "./Message";
 import ListGroup from "./components/ListGroup";
+import Form from "./components/Form";
 
 import "./App.css";
 
@@ -11,8 +12,9 @@ function App() {
   return (
     <>
       <div>
-        <Message />
-        <ListGroup />
+        {/* <Message /> */}
+        <Form />
+        {/* <ListGroup /> */}
       </div>
       {/* <h1>Vite + React</h1> */}
     </>
