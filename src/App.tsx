@@ -8,12 +8,19 @@ import "./App.css";
 function App() {
   const items = ["New York", "Los Angeles", "Chicago", "London", "Tokyo"];
 
+  const handleSelectItem = (item: string) => {
+    console.log(item);
+  };
   return (
     <>
       <div>
         {/* <Message /> */}
         {/* <Form /> */}
-        <ListGroup items={items} heading="Cities" />
+        <ListGroup
+          items={items}
+          heading="Cities"
+          onSelectItem={handleSelectItem}
+        />
       </div>
     </>
   );

@@ -1,15 +1,13 @@
 import { MouseEvent, useState } from "react";
 
-// { items: [], heading: string}
-// using an interface
 interface ListGroupProps {
   items: string[];
   heading: string;
+  // (item: string) => void;
+  onSelectItem?: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: ListGroupProps) {
-  // const items = ["New York", "Los Angeles", "Chicago", "London", "Tokyo"];
-
+function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // const hancleClick = (event: MouseEvent) => console.log(event);
@@ -29,6 +27,7 @@ function ListGroup({ items, heading }: ListGroupProps) {
             // onClick={hancleClick}
             onClickCapture={(event) => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
