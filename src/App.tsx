@@ -1,27 +1,11 @@
-import { useState } from "react";
-// import Message from "./Message";
-import ListGroup from "./components/ListGroup";
-// import Form from "./components/Form";
-
-import "./App.css";
+import Alert from "./components/Alert";
 
 function App() {
-  const items = ["New York", "Los Angeles", "Chicago", "London", "Tokyo"];
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
   return (
     <>
-      <div>
-        {/* <Message /> */}
-        {/* <Form /> */}
-        <ListGroup
-          items={items}
-          heading="Cities"
-          onSelectItem={handleSelectItem}
-        />
-      </div>
+      <Alert>
+        Hello, <h3>world!</h3>
+      </Alert>
     </>
   );
 }
