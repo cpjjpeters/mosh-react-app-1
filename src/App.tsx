@@ -1,22 +1,19 @@
 import { useState } from "react";
-import Message from "./Message";
-import ListGroup from "./components/ListGroup";
-import Form from "./components/Form";
 
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
   const name = "Carl";
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
       <div>
-        {/* <Message /> */}
-        <Form />
-        {/* <ListGroup /> */}
+        {firstName} {lastName ? `(${lastName})` : ""}
       </div>
-      {/* <h1>Vite + React</h1> */}
     </>
   );
 }
