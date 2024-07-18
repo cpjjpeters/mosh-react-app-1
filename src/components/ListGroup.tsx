@@ -1,18 +1,22 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  const items = ["New York", "Los Angeles", "Chicago", "London", "Tokyo"];
-  //  with let items = [];
+// { items: [], heading: string}
+// using an interface
+interface ListGroupProps {
+  items: string[];
+  heading: string;
+}
 
-  const message = items.length === 0 && <p>No items to display</p>;
-  // let selectedIndex = -1;
+function ListGroup({ items, heading }: ListGroupProps) {
+  // const items = ["New York", "Los Angeles", "Chicago", "London", "Tokyo"];
+
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // const hancleClick = (event: MouseEvent) => console.log(event);
   return (
     <>
-      <h1>ListGroup</h1>
-      {message}
+      <h1>{heading}</h1>
+      {items.length === 0 && <h2>No item found</h2>}
       <ul className="list-group">
         {items.map((item, index) => (
           <li

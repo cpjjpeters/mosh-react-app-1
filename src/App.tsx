@@ -1,22 +1,20 @@
 import { useState } from "react";
-import Message from "./Message";
+// import Message from "./Message";
 import ListGroup from "./components/ListGroup";
-import Form from "./components/Form";
+// import Form from "./components/Form";
 
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const name = "Carl";
+  const items = ["New York", "Los Angeles", "Chicago", "London", "Tokyo"];
 
   return (
     <>
       <div>
         {/* <Message /> */}
-        <Form />
-        {/* <ListGroup /> */}
+        {/* <Form /> */}
+        <ListGroup items={items} heading="Cities" />
       </div>
-      {/* <h1>Vite + React</h1> */}
     </>
   );
 }
