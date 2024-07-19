@@ -3,26 +3,30 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [tags, setTags] = useState(["tag1", "tag2", "tag3"]);
-  const TimeRanges = tags.map((tag, index) => (
-    <span key={index} className="badge bg-primary me-1">
-      {tag}
-    </span>
-  ));
+  const [bugs, setBugs] = useState([
+    { id: 1, description: "Bug 1", fixed: false },
+    { id: 2, description: "Bug 2", fixed: false },
+    { id: 3, description: "Bug 3", fixed: false },
+  ]);
+
   const handleClick = () => {
-    // Add
-    setTags([...tags, "tag"]);
-    // Remove
-    // setTags(tags.filter(tag => tag !== "tag1"));
-    // Update
-    // setTags(tags.map(tag => (tag === "tag1" ? "tag1.1" : tag)));
+    setBugs(bugs.map((bug) => (bug.id === 2 ? { ...bug, fixed: true } : bug)));
   };
 
   return (
     <>
       <div>
         <button onClick={handleClick}>Click Me</button>
-        <p>{TimeRanges.map}</p>
+        {bugs.map(
+          (bug) => (
+            console.log(bug),
+            (
+              <div key={bug.id}>
+                {bug.description} - {bug.fixed}
+              </div>
+            )
+          )
+        )}
       </div>
     </>
   );
