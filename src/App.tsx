@@ -3,29 +3,26 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [customer, setCustomer] = useState({
-    name: "John",
-    address: {
-      city: "New York",
-      zipCode: 10001,
-    },
-  });
-
+  const [tags, setTags] = useState(["tag1", "tag2", "tag3"]);
+  const TimeRanges = tags.map((tag, index) => (
+    <span key={index} className="badge bg-primary me-1">
+      {tag}
+    </span>
+  ));
   const handleClick = () => {
-    setCustomer({
-      ...customer,
-      address: { ...customer.address, zipCode: 94112 },
-    });
+    // Add
+    setTags([...tags, "tag"]);
+    // Remove
+    // setTags(tags.filter(tag => tag !== "tag1"));
+    // Update
+    // setTags(tags.map(tag => (tag === "tag1" ? "tag1.1" : tag)));
   };
 
   return (
     <>
       <div>
         <button onClick={handleClick}>Click Me</button>
-        <p>
-          {customer.name} lives in {customer.address.city} with zip code{" "}
-          {customer.address.zipCode}
-        </p>
+        <p>{TimeRanges.map}</p>
       </div>
     </>
   );
