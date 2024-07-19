@@ -3,16 +3,23 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const name = "Carl";
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  });
+
+  const handleClick = () => {
+    // const newDrink = { ...drink, price: drink.price + 1 };
+    // setDrink(newDrink);
+    // or
+    setDrink({ ...drink, price: 7 });
+  };
 
   return (
     <>
       <div>
-        {firstName} {lastName ? `(${lastName})` : ""}
+        <button onClick={handleClick}>Click Me</button>
+        <p>{drink.price}</p>
       </div>
     </>
   );
