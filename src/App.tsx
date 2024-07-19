@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { produce } from "immer";
-import "./App.css";
+import Cart from "./components/Cart";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const handleClick = () => {};
+  const [cartItems, setCartItems] = useState([
+    "Product1",
+    "Product2",
+    "Product3",
+  ]);
+
+  // const handleClick = () => {};
 
   return (
     <>
       <div>
-        <button onClick={handleClick}>Click Me</button>
+        <NavBar cartItemsCount={cartItems.length} />
+        <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
       </div>
     </>
   );
