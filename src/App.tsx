@@ -3,23 +3,29 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [drink, setDrink] = useState({
-    title: "Americano",
-    price: 5,
+  const [customer, setCustomer] = useState({
+    name: "John",
+    address: {
+      city: "New York",
+      zipCode: 10001,
+    },
   });
 
   const handleClick = () => {
-    // const newDrink = { ...drink, price: drink.price + 1 };
-    // setDrink(newDrink);
-    // or
-    setDrink({ ...drink, price: 7 });
+    setCustomer({
+      ...customer,
+      address: { ...customer.address, zipCode: 94112 },
+    });
   };
 
   return (
     <>
       <div>
         <button onClick={handleClick}>Click Me</button>
-        <p>{drink.price}</p>
+        <p>
+          {customer.name} lives in {customer.address.city} with zip code{" "}
+          {customer.address.zipCode}
+        </p>
       </div>
     </>
   );
