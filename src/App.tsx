@@ -1,28 +1,31 @@
 import { useState } from "react";
 
 function App() {
-  const [game, setGame] = useState({
-    id: 1,
-    player: {
-      name: "John",
-    },
+  const [pizza, setPizza] = useState({
+    name: "Spicy Pepperoni",
+    toppings: ["Mushroom"],
   });
 
   // const handleClick = () => {};
   const handleClick = () => {
-    setGame({
-      ...game,
-      player: {
-        ...game.player,
-        name: "Paul",
-      }, // spread the player object
+    setPizza({
+      ...pizza,
+      toppings: {
+        ...pizza.toppings,
+        1: "Pepperoni",
+        2: "Onion",
+        3: "Cheese",
+      },
+      // or toppings: [...pizza.toppings, 'Cheese']
     });
   };
 
   return (
     <>
       <button onClick={handleClick}>Change Name</button>
-      <div>{game.player.name}</div>
+      <div>
+        {pizza.name} with {pizza.toppings[0]}
+      </div>
     </>
   );
 }
