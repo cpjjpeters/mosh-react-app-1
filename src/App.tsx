@@ -9,9 +9,19 @@ function App() {
   });
 
   // const handleClick = () => {};
+  const handleClick = () => {
+    setGame({
+      ...game,
+      player: {
+        // ...game.player.name,
+        name: "Paul",
+      }, // spread the player object
+    });
+  };
 
   return (
     <>
+      <button onClick={handleClick}>Change Name</button>
       <div>{game.player.name}</div>
     </>
   );
