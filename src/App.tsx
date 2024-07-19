@@ -13,7 +13,7 @@ function App() {
     setGame({
       ...game,
       player: {
-        // ...game.player.name,
+        ...game.player,
         name: "Paul",
       }, // spread the player object
     });
