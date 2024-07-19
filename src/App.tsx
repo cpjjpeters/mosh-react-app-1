@@ -1,31 +1,28 @@
 import { useState } from "react";
 
 function App() {
-  const [pizza, setPizza] = useState({
-    name: "Spicy Pepperoni",
-    toppings: ["Mushroom"],
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: "Product 1", quantity: 100 },
+      { id: 2, title: "Product 2", quantity: 150 },
+      { id: 3, title: "Product 3", quantity: 200 },
+    ],
   });
 
-  // const handleClick = () => {};
   const handleClick = () => {
-    setPizza({
-      ...pizza,
-      toppings: {
-        ...pizza.toppings,
-        1: "Pepperoni",
-        2: "Onion",
-        3: "Cheese",
-      },
-      // or toppings: [...pizza.toppings, 'Cheese']
+    setCart({
+      ...cart,
+      items: cart.items.map((item) =>
+        item.id === 2 ? { ...item, quantity: 120 } : item
+      ),
     });
   };
-
   return (
     <>
-      <button onClick={handleClick}>Change Name</button>
-      <div>
-        {pizza.name} with {pizza.toppings[0]}
-      </div>
+      {/* <h3>Cart {cart.items.map(item) =>item.id ===2}</h3> */}
+      <button onClick={handleClick}>Change quantity</button>
+      {/* <p>{cart.items.filter((id = 2))}</p> */}
     </>
   );
 }
